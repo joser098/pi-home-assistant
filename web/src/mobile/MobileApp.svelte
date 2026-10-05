@@ -11,7 +11,7 @@
   type Tab = 'agenda' | 'reminders' | 'settings';
   const TABS: { id: Tab; label: string; icon: string }[] = [
     { id: 'agenda', label: 'Agenda', icon: '📅' },
-    { id: 'reminders', label: 'Pendientes', icon: '✓' },
+    { id: 'reminders', label: 'Recordatorios', icon: '✓' },
     { id: 'settings', label: 'Ajustes', icon: '⚙' },
   ];
 

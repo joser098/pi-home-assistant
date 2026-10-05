@@ -18,7 +18,7 @@
   const shown = $derived(pending.slice(0, SHOWN));
 </script>
 
-<Card title={`Pendientes${pending.length ? ` (${pending.length})` : ''}`} {onopen} grow>
+<Card title={`Recordatorios${pending.length ? ` (${pending.length})` : ''}`} {onopen} grow>
   <div class="list">
     {#each shown as r (r.id)}
       <ReminderItem reminder={r} onclick={() => onselect({ type: 'reminder', item: r })} />

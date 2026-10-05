@@ -29,7 +29,7 @@
 </script>
 
 <div class="item" class:done role="button" tabindex="0" {onclick} onkeydown={(e) => e.key === 'Enter' && onclick?.()}>
-  <button class="check" class:busy onclick={toggle} aria-label={done ? 'Marcar pendiente' : 'Marcar hecho'} style:--c={app.colorFor(reminder.assignedTo)}>
+  <button class="check" class:busy onclick={toggle} aria-label={done ? 'Marcar como no hecho' : 'Marcar hecho'} style:--c={app.colorFor(reminder.assignedTo)}>
     {#if done}
       <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
     {/if}

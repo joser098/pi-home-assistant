@@ -57,7 +57,7 @@
       {#if selected.type === 'reminder'}
         {@const r = selected.item}
         {#if r.doneAt}
-          <button class="btn" disabled={busy} onclick={() => run(() => data.reopenReminder(r.id), 'Marcado pendiente')}>Marcar pendiente</button>
+          <button class="btn" disabled={busy} onclick={() => run(() => data.reopenReminder(r.id), 'Marcado como no hecho')}>Marcar como no hecho</button>
         {:else}
           <button class="btn primary" disabled={busy} onclick={() => run(() => data.completeReminder(r.id), '¡Hecho!')}>✓ Hecho</button>
         {/if}

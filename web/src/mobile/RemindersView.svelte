@@ -46,7 +46,7 @@
     </div>
   </section>
 {:else}
-  <p class="empty">No hay pendientes ✓</p>
+  <p class="empty">No hay recordatorios ✓</p>
 {/each}
 
 {#if done.length}

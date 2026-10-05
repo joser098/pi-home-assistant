@@ -22,7 +22,7 @@
     agenda: 'Calendario',
     week: 'Calendario',
     month: 'Calendario',
-    reminders: 'Pendientes',
+    reminders: 'Recordatorios',
     weather: 'Clima',
   };
   const CALENDAR_TABS: { id: View; label: string }[] = [
