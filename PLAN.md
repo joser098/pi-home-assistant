@@ -71,7 +71,8 @@ pi-home/
 3. ✅ **Google**: proyecto `pi-home-510721`, Service Account `pihome@…`, calendario compartido **"Home"**
 4. **Push**: llaves VAPID, suscripción en los celulares y cron de recordatorios
 5. ✅ **Deploy**: web en https://ajhome-plum.vercel.app, Pi en kiosko (Pi Connect, `~/.config/pihome/url`)
-6. **Después**: lista de compras, clima, calendarios personales en solo lectura, bot de Telegram, Home Assistant
+5b. ✅ **Clima**: Open-Meteo, actual + pronóstico por hora del día (pestaña "Clima" en el kiosko, tarjeta en la Agenda del celular)
+6. **Después**: lista de compras, calendarios personales en solo lectura, bot de Telegram, Home Assistant
 
 ## Datos pendientes (por ahora son placeholders en config)
 - Nombres y colores de los dos

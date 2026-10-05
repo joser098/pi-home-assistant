@@ -4,6 +4,7 @@
   import { addDays, dayLabel, eventsOnDay, fmtShortDate, remindersOnDay, startOfDay } from '../lib/dates';
   import { app } from '../lib/store.svelte';
   import type { Selected } from '../lib/types';
+  import WeatherCard from './WeatherCard.svelte';
 
   let { onselect }: { onselect: (s: Selected) => void } = $props();
 
@@ -23,6 +24,8 @@
     return out;
   });
 </script>
+
+<WeatherCard />
 
 {#each days as { d, events, reminders } (d.getTime())}
   {@const label = dayLabel(d, app.now)}

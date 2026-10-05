@@ -14,7 +14,17 @@ export const config = {
   nightStart: hour(env.VITE_NIGHT_START, 23),
   nightEnd: hour(env.VITE_NIGHT_END, 7),
   locale: 'es-AR',
+  weather: {
+    lat: num(env.VITE_WEATHER_LAT, -34.6037),
+    lon: num(env.VITE_WEATHER_LON, -58.3816),
+    place: (env.VITE_WEATHER_PLACE as string | undefined) || 'Buenos Aires',
+  },
 };
+
+function num(value: string | undefined, fallback: number): number {
+  const n = Number(value);
+  return value && Number.isFinite(n) ? n : fallback;
+}
 
 const KIOSK_KEY = 'pihome.kiosk';
 

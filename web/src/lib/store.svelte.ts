@@ -1,4 +1,5 @@
 import { data } from './data';
+import { weather } from './weather.svelte';
 import type { CalEvent, ChangeKind, Member, Reminder } from './types';
 
 const CACHE_KEY = 'pihome.cache.v1';
@@ -58,6 +59,7 @@ class AppState {
 
   async init() {
     setInterval(() => (this.now = new Date()), 15_000);
+    weather.start();
     addEventListener('online', () => {
       this.online = true;
       void this.refresh();

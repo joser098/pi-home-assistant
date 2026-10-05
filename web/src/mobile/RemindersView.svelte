@@ -4,7 +4,7 @@
   import { app } from '../lib/store.svelte';
   import type { Reminder, Selected } from '../lib/types';
 
-  let { onselect }: { onselect: (s: Selected) => void } = $props();
+  let { onselect, showFilters = true }: { onselect: (s: Selected) => void; showFilters?: boolean } = $props();
 
   let onlyMine = $state(false);
   let showDone = $state(false);
@@ -29,10 +29,12 @@
   const done = $derived(visible.filter((r) => r.doneAt).sort((a, b) => b.doneAt!.getTime() - a.doneAt!.getTime()));
 </script>
 
-<div class="filters">
-  <button class="chip" class:selected={!onlyMine} onclick={() => (onlyMine = false)}>Todos</button>
-  <button class="chip" class:selected={onlyMine} onclick={() => (onlyMine = true)}>Míos</button>
-</div>
+{#if showFilters}
+  <div class="filters">
+    <button class="chip" class:selected={!onlyMine} onclick={() => (onlyMine = false)}>Todos</button>
+    <button class="chip" class:selected={onlyMine} onclick={() => (onlyMine = true)}>Míos</button>
+  </div>
+{/if}
 
 {#each groups as g (g.title)}
   <section>
