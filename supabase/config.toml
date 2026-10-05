@@ -1,0 +1,11 @@
+# Config mínima para `supabase functions deploy` / `supabase db push`.
+project_id = "pi-home"
+
+[functions.calendar-sync]
+verify_jwt = false
+
+[functions.send-reminders]
+verify_jwt = false
+
+[functions.calendar-events]
+verify_jwt = true

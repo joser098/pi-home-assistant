@@ -1,0 +1,13 @@
+node_modules
+.env
+.env.*
+!.env.example
+*.local
+dev-dist
+# Claves de Google: nunca al repo
+*service-account*.json
+supabase/.temp
+supabase/.branches
+supabase/secrets.env
+pi-home-*.json
+**/pi-home-*.json
