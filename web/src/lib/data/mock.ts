@@ -1,5 +1,5 @@
-import { addDays, combine, parseIsoDate, startOfDay } from '../dates';
-import type { CalEvent, ChangeKind, DataSource, Member, NewEvent, NewReminder, Recurrence, Reminder } from '../types';
+import { addDays, combine, isoDate, parseIsoDate, startOfDay } from '../dates';
+import type { CalEvent, ChangeKind, DataSource, Member, NewEvent, NewReminder, Recurrence, Reminder, Verse } from '../types';
 
 const STORE_KEY = 'pihome.mock.v1';
 
@@ -188,6 +188,15 @@ export class MockDataSource implements DataSource {
   async deletePushSubscription() {}
   async sendTestPush() {
     throw new Error('En modo demo no hay notificaciones push');
+  }
+
+  async verseOfDay(): Promise<Verse> {
+    return {
+      day: isoDate(new Date()),
+      reference: 'Salmos 118:24',
+      content: 'Este es el día que hizo Jehová; nos gozaremos y alegraremos en él.',
+      version: 'RVR1909',
+    };
   }
 
   subscribe(onChange: (k: ChangeKind) => void) {

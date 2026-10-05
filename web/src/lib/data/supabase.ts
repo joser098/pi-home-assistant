@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { parseIsoDate } from '../dates';
-import type { CalEvent, ChangeKind, DataSource, Member, NewEvent, NewReminder, Recurrence, Reminder } from '../types';
+import type { CalEvent, ChangeKind, DataSource, Member, NewEvent, NewReminder, Recurrence, Reminder, Verse } from '../types';
 
 interface MemberRow {
   id: string;
@@ -202,6 +202,15 @@ export class SupabaseDataSource implements DataSource {
   async sendTestPush() {
     const { error } = await this.client.functions.invoke('send-reminders', { body: { test: true } });
     if (error) throw new Error('No se pudo enviar la notificación de prueba');
+  }
+
+  async verseOfDay(): Promise<Verse | null> {
+    const { data, error } = await this.client.functions.invoke('verse-of-day', { method: 'GET' });
+    if (error || !data?.content) {
+      console.warn('[pihome] versículo del día no disponible', error);
+      return null;
+    }
+    return { day: data.day, reference: data.reference, content: data.content, version: data.version ?? null };
   }
 
   subscribe(onChange: (k: ChangeKind) => void) {

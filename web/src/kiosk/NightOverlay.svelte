@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { config } from '../lib/config';
+  import { isNightHour } from '../lib/config';
   import { fmtTime } from '../lib/dates';
   import { app } from '../lib/store.svelte';
 
@@ -7,12 +7,7 @@
 
   let wokeAt = $state(0);
 
-  const isNightHour = $derived.by(() => {
-    const h = app.now.getHours();
-    const { nightStart: s, nightEnd: e } = config;
-    return s > e ? h >= s || h < e : h >= s && h < e;
-  });
-  const asleep = $derived(isNightHour && app.now.getTime() - wokeAt > WAKE_MS);
+  const asleep = $derived(isNightHour(app.now) && app.now.getTime() - wokeAt > WAKE_MS);
 </script>
 
 {#if asleep}

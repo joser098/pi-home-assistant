@@ -9,3 +9,6 @@ verify_jwt = false
 
 [functions.calendar-events]
 verify_jwt = true
+
+[functions.verse-of-day]
+verify_jwt = false

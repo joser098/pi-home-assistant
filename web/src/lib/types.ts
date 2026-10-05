@@ -57,6 +57,14 @@ export interface NewReminder {
   recurrence: Recurrence | null;
 }
 
+export interface Verse {
+  /** YYYY-MM-DD (fecha local de la casa). */
+  day: string;
+  reference: string;
+  content: string;
+  version: string | null;
+}
+
 export type ChangeKind = 'events' | 'reminders' | 'members';
 
 export interface DataSource {
@@ -83,6 +91,9 @@ export interface DataSource {
   savePushSubscription(sub: PushSubscriptionJSON): Promise<void>;
   deletePushSubscription(endpoint: string): Promise<void>;
   sendTestPush(): Promise<void>;
+
+  /** Versículo del día (YouVersion), o null si no está disponible. */
+  verseOfDay(): Promise<Verse | null>;
 
   subscribe(onChange: (kind: ChangeKind) => void): () => void;
 }

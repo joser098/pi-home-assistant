@@ -26,6 +26,13 @@ function num(value: string | undefined, fallback: number): number {
   return value && Number.isFinite(n) ? n : fallback;
 }
 
+/** ¿Es horario nocturno (modo noche del kiosko)? Soporta rangos que cruzan medianoche. */
+export function isNightHour(d: Date): boolean {
+  const h = d.getHours();
+  const { nightStart: s, nightEnd: e } = config;
+  return s > e ? h >= s || h < e : h >= s && h < e;
+}
+
 const KIOSK_KEY = 'pihome.kiosk';
 
 /** El kiosko se activa una vez con ?kiosk=1 (o se desactiva con ?kiosk=0) y queda recordado. */

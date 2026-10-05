@@ -14,6 +14,7 @@
   import DetailBar from './DetailBar.svelte';
   import MonthView from './MonthView.svelte';
   import NightOverlay from './NightOverlay.svelte';
+  import Screensaver from './Screensaver.svelte';
   import type { View } from './views';
   import WeatherView from './WeatherView.svelte';
   import WeekView from './WeekView.svelte';
@@ -140,6 +141,7 @@
   <AddFlow initialDate={adding.date} onclose={() => (adding = null)} />
 {/if}
 
+<Screensaver />
 <NightOverlay />
 <Toast />
 

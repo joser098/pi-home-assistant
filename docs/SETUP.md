@@ -61,12 +61,15 @@ insert into public.members (id, name, color, role, google_email) values
 | `VAPID_SUBJECT` | `mailto:tu-email@gmail.com` |
 | `HOUSEHOLD_TZ` | `America/Argentina/Buenos_Aires` (opcional) |
 | `ALL_DAY_REMINDER_HOUR` | Hora de aviso de los recordatorios sin hora, por defecto `9` (opcional) |
+| `YOUVERSION_APP_KEY` | App Key de [YouVersion Platform](https://developers.youversion.com/) (versículo del día en el reposo) |
+| `YOUVERSION_BIBLE_ID` | Opcional. Biblias en español del plan gratis: `147` Reina-Valera Antigua, `3365` Palabra de Dios para ti, `3291` Versión Biblia Libre |
 
 ### 2.5 Desplegar funciones
 ```bash
 supabase functions deploy calendar-sync --no-verify-jwt
 supabase functions deploy send-reminders --no-verify-jwt
 supabase functions deploy calendar-events
+supabase functions deploy verse-of-day --no-verify-jwt
 ```
 
 ### 2.6 Cron
